@@ -1,0 +1,13 @@
+.price-header{
+    flex-grow: 1;
+    text-align: right;
+}
+
+.budget-validation {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo{
+    width: 100px;
+}

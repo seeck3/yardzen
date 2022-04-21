@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# Budget Calculator Exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+As clients are onboarded to the Yardzen landscape design process, one challenge that we face is setting realistic expectations around budget. In order to help clients understand the cost of building and installing individual elements in their designs, we would like to build a budget calculator. As a starting point, we are thinking of a list of elements that we commonly place in landscape designs as well as a rough estimate of how much the selected items will cost.
 
-## Available Scripts
+## Your Task
 
-In the project directory, you can run:
+Create a budget calculator using the frontend framework of your choice (we prefer React because that is what we use at Yardzen) which you will connect to an existing Google Firebase/Firestore project. We are looking for a simple application that provides the user with a place to input their desired budget, choose from a list of items to place in their design, and an estimated price range of the items that they have selected.
 
-### `npm start`
+## Objectives
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Create a new repository through GitHub or Bitbucket and share it with us. We like to see your work as you progress.
+- Start the user experience by prompting the client to enter a budget for their project
+- Query the budget elements from the firebase firestore collection called "items"
+- Display the queried items in a list grouped by type (see item interface below). Only one item per type may be selected at any given time.
+- Each item has a low and high price. These prices should be displayed to the user as well as an aggregate price range of all selected items.
+- The application should inform the user whether their budget is over, under, or within the range of the items that they have selected.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **(Bonus)** Add functionality that allows the user to submit their checklist. Store this information however you would like in firestore, but DO NOT modify the "items" collections. Be aware that multiple candidates may be working from this database at the same time, so please prefix any collections that you create with your first and last name. Ex. `benjaminRoseBudgetResponses`.
 
-### `npm test`
+## Things You'll Need
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Firebase Config**
+  - [Firebase Documentation](https://firebase.google.com/docs/web/setup)
+  - Config Object:
+  ```
+  {
+    apiKey: "AIzaSyD7NUVfrImccSo8FuCBG7bXVk0oLFqgE-k",
+    authDomain: "yardzen-demo.firebaseapp.com",
+    databaseURL: "https://yardzen-demo.firebaseio.com",
+    projectId: "yardzen-demo",
+    storageBucket: "yardzen-demo.appspot.com",
+    messagingSenderId: "509183652730",
+    appId: "1:509183652730:web:ba2208f7d8e0882f009cc3"
+  }
+  ```
+- **"items" collection interface**
+  - Each document in the collection looks like this:
+  ```
+  interface Item {
+  type: string;
+  name: string;
+  lowPrice: number;
+  highPrice: number;
+  }
+  ```
+  - The `lowPrice` and `highPrice` properties are integers representing US Dollars. The last two digits of each number are cents, meaning `60000` is equal to $600.00.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## What We're Looking For
+- Excellent UI design.
+- A thorough understanding of JavaScript and frontend programming in general. Typescript is even better (and what we use at Yardzen).
+- Use of modular, reusable components.
+- Code comments explaining your thought process and choices.
